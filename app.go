@@ -141,7 +141,7 @@ func (app *App) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 
 // Run http server and listen on config value or 9001 by default.
 func (app *App) Run() {
-	addr := app.config.StringOr("app.server", "localhost:9001")
+	addr := app.config.StringOr("app.server", "0.0.0.0:9001")
 	println("http server run at " + addr)
 	e := http.ListenAndServe(addr, app)
 	panic(e)
